@@ -17,6 +17,11 @@ func main() {
 		return
 	}
 
-	orbitalSpeed := api.CalculateOrbitalSpeed(measurement)
+	orbitalSpeed, err := api.CalculateOrbitalSpeed(measurement)
+	if err != nil {
+		fmt.Printf("Error al calcular la velocidad de la orbita: %v\n", err)
+		return
+	}
+
 	fmt.Printf("Velocidad orbital instantánea: %d km/h\n", orbitalSpeed)
 }
