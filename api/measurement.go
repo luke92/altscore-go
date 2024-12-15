@@ -60,13 +60,12 @@ func CalculateOrbitalSpeed(measurement *Measurement) (int, error) {
 	if err != nil {
 		return 0, fmt.Errorf("error al convertir Distance a float64: %w", err)
 	}
-	distanceKm := distanceAU * 149597870.7
 
 	timeHours, err := ParseTime(measurement.Time)
 	if err != nil {
 		return 0, fmt.Errorf("error al convertir Time a float64: %w", err)
 	}
 
-	speed := distanceKm / timeHours
+	speed := distanceAU / timeHours
 	return int(speed), nil
 }
